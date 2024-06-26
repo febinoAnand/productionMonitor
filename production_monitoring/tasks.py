@@ -1,13 +1,15 @@
 
 from celery import shared_task
 import random
-from .models import ProductionCount 
+from .models import ProductionCount,Machine
 from datetime import datetime, timedelta 
 
 @shared_task
 def generate_random_production_count(args):
     production_count = random.randint(1, 50)
-    ProductionCount.objects.create(production=production_count)
+    machineList = list(Machine.objects.all())
+    machineRandom = random.choice(machineList)
+    ProductionCount.objects.create(production=production_count,machine = machineRandom)
     print("Succesfully Created!!")
 
 # @shared_task
