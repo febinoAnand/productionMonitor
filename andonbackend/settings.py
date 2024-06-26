@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-wh7kre*rg0n8#613dyyu5yft&h0d7%ij#ue2%cs43j$=mb+bv2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['http://production.univa.cloud/','https://production.univa.cloud/']
+ALLOWED_HOSTS = ['production.univa.cloud']
 
 
 # Application definition
