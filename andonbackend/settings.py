@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-wh7kre*rg0n8#613dyyu5yft&h0d7%ij#ue2%cs43j$=mb+bv2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['production.univa.cloud','localhost']
 
 
 # Application definition
@@ -160,7 +160,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+# TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 
