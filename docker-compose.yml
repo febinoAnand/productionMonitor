@@ -1,11 +1,11 @@
 version: '3.8'
 
 services:
-    redis:
-        image: redis:7.0.11-alpine
-        command: redis-server --requirepass ifm_9182837465
-        ports:
-            - 6379:6379
+    # redis:
+    #     image: redis:7.0.11-alpine
+    #     command: redis-server --requirepass ifm_9182837465
+    #     ports:
+    #         - 6379:6379
         
     django:
         container_name: Production_Monitoring
@@ -15,14 +15,14 @@ services:
         volumes:
             - ./:/usr/src/app/
         ports:
-            - 9002:8000
+            - 9003:8000
         environment:
             - DEBUG=1
             - SECRET_KEY='django-insecure-gstje5mbc3lk)j+@o@l)=kw6w3xo_2(ryf3q+q)^^ih@k)2&be'
             - ALLOWED_HOST=localhost, 127.0.0.1
 
-        depends_on:
-            - redis
+        # depends_on:
+        #     - redis
 
     celery:
         container_name: Production_Monitoring_celery-worker
@@ -40,8 +40,8 @@ services:
             # - CELERY_TASK_TIME_LIMIT= 30 * 60
             # - CELERY_BROKER_URL= "redis://redis:6379"
             # - CELERY_BACKEND= "redis://redis:6379"
-        depends_on:
-            - redis
+        # depends_on:
+        #     - redis
 
     celery-beat:
         container_name: Production_Monitoring_celery_beat
@@ -60,5 +60,5 @@ services:
             # - CELERY_BROKER_URL= "redis://redis:6379"
             # - CELERY_BACKEND= "redis://redis:6379"
         depends_on:
-            - redis
+            # - redis
             - celery
